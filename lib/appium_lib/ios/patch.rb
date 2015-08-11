@@ -13,9 +13,9 @@ module Appium
         end
 
         # Cross platform way of entering text into a textfield
-        def type(text)
+        def type(driver, text)
           # type
-          $driver.execute_script %(au.getElement('#{ref}').setValue('#{text}');)
+          driver.execute_script %(au.getElement('#{ref}').setValue('#{text}');)
         end # def type
       end # Selenium::WebDriver::Element.class_eval
     end # def patch_webdriver_element

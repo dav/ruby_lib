@@ -197,12 +197,12 @@ module Appium
         add_endpoint_method(:hide_keyboard, 'session/:session_id/appium/device/hide_keyboard') do
           def hide_keyboard(close_key = nil)
             # Android can only tapOutside.
-            if $driver.device_is_android?
+            if self.device_is_android?
               return execute :hide_keyboard, {}, strategy: :tapOutside
             end
 
             close_key ||= 'Done' # default to Done key.
-            $driver.hide_ios_keyboard close_key
+            self.hide_ios_keyboard close_key
           end
         end
 
